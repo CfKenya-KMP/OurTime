@@ -80,13 +80,22 @@ def home():
                     county=county,
                     governor=gov['governor'],
                     governor_img=resp['governor_image'],
-                    rank=rank
+                    rank=rank,
+                    ratio=ratio
                     )
 
             county_data.append(county_payload)
             print "Added %s (%s percent) to final list" % (county, int(ratio))
     
-    return render_template('index.html', county_rankings=county_data)
+    # divide data into 3 for frontend segments
+    section_one = county_data[0]
+    section_two = county_data[1:11]
+    section_three = county_data[11:len(county_data)]
+    
+    return render_template('index.html',
+            section_one=section_one,
+            section_two=section_two,
+            section_three=section_three)
 
 
 ### END OF VIEWS

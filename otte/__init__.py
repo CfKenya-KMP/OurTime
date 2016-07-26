@@ -66,6 +66,7 @@ def get_county_data(county):
     rank = 0
     county_payload = dict(
             county=county,
+            county_str=county.capitalize(),
             governor=gov['governor'],
             governor_img=resp['governor_image'],
             rank=rank,
@@ -79,6 +80,18 @@ def get_county_data(county):
             )
     
     return county_payload
+
+
+def sort_list_by_key(list_, key):
+    '''
+    @list_ :  a list of <dict> objects with a `key` key
+    @key   :  a key in all <dict> objects in `list_`. Value of `key` must be an <int>
+    '''
+    try:
+        return sorted(list_, key=lambda k: k[key])
+    except Exception, err:
+        print "ERROR: Failed to sort list -- %s" % str(err)
+        return list_
 
 
 ### VIEWS
@@ -96,8 +109,7 @@ def home():
             county_data.append(county_payload)
             print "Added %s to final list" % (county)
     
-    # divide data into 3 for frontend segments
-    sorted_resp = sorted(county_data, key=lambda k: k['ratio'])
+    sorted_resp = sort_list_by_key(county_data, 'ratio')
     sorted_data = []
     rank = 1
     for each in sorted_resp:
@@ -105,9 +117,15 @@ def home():
         sorted_data.append(each)
         rank += 1
 
-    section_one = sorted_data[0]
-    section_two = sorted_data[1:11]
-    section_three = sorted_data[11:len(county_data)]
+    reverse_sorted = []
+    for idx in range(0, len(sorted_data)):
+        reverse_sorted.append(sorted_data.pop())
+    
+    section_one = reverse_sorted[0]
+    section_two = reverse_sorted[1:11]
+    section_three = reverse_sorted[11:len(reverse_sorted)-1]
+
+    print sorted_data
     
     return render_template('index.html',
             section_one=section_one,
@@ -122,8 +140,6 @@ def subpage():
     # single county data
     args = request.args.copy()
     _county = args['county']
-    _county_data = get_county_data(_county)
-
 
     # all county data
     county_data = []
@@ -131,6 +147,14 @@ def subpage():
         if not county in app.config['NODATA']:
             county_payload = get_county_data(county)
             county_data.append(county_payload)
+    sorted_data = []
+    rank = 1
+    for each in sort_list_by_key(county_data, 'ratio'):
+        each['rank'] = rank
+        sorted_data.append(each)
+        if each['county'] == _county:
+            _county_data = each
+        rank += 1
     return render_template('subpage.html', this_county=_county_data, county_payload=county_data)
 
 

@@ -30,7 +30,7 @@
 	<header class="top">
 		<div class="wrap">
 			<a href="../" class="logo">&nbsp;</a>
-            <h1>{{ this_county['county'] }} County expenditure data</h1>
+            <h1>{{ this_county['county_str'] }} County expenditure data</h1>
 			<div class="inner-wrap">
 				<a class="governor primary clearfix" href="">
                     <div class="avi" style="background-image:url('{{ this_county['governor_img'] }}')"></div>
@@ -76,7 +76,7 @@
 				</div>
 				<div class="chart third">
 					<div class="inner">
-                        {{ this_county['county'] }} governor {{ this_county['governor'] }} is ranked <em>{{ this_county['rank'] }}th</em> least efficient  #BiscuitIndex. {{ this_county['county'] }} spends <em>{{ this_county['ratio'] }}%</em> of its budget allocation on travel and 'tea and biscuits'.
+                        At number {{ this_county['rank'] }} is {{ this_county['county_str'] }} County, which spends <em>{{ this_county['ratio'] }}%</em> of its budget allocation on travel and 'tea and biscuits'.
 
 						<div class="social-sharing">
 							<a href="" id="twtbtn" class="twitter-hashtag-button" data-size="large" data-url="http://ourtime2eat.codeforkenya.org">Tweet #OurTime2Eat</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>

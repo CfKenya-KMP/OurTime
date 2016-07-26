@@ -70,7 +70,7 @@ def get_county_data(county):
             governor=gov['governor'],
             governor_img=resp['governor_image'],
             rank=rank,
-            ratio=ratio,
+            ratio=str(ratio)[0:4],
             hospitality=hospitality_budget,
             hospitality_remainder=total_budget - hospitality_budget,
             travel=travel_budget,

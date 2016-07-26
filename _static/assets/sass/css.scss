@@ -26,7 +26,7 @@ body {
 	font-size: 20px;
 }
 
- .wrap {
+.wrap {
 	width: 1200px;
 	margin: 0 auto;
 	text-align: left;
@@ -264,6 +264,22 @@ body {
 
 		.rank:before { color: rgba($navyblue-primary, 0.5); }
 	}
+}
+
+.social-sharing {
+	margin-top: 30px;
+
+	&.home {
+		position: absolute;
+		right: 80px;
+		margin-top: 0;
+		top: 0;
+
+		.fb-share-button { top: 0; }
+	}
+
+	iframe { margin-right: 7px; }
+	.fb-share-button { top: -1px; }
 }
 
 .bottom {

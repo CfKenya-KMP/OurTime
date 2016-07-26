@@ -137,7 +137,6 @@ def home():
 def subpage():
     '''
     '''
-    # single county data
     args = request.args.copy()
     _county = args['county']
 
@@ -152,10 +151,11 @@ def subpage():
     for each in sort_list_by_key(county_data, 'ratio'):
         each['rank'] = rank
         sorted_data.append(each)
-        if each['county'] == _county:
-            _county_data = each
         rank += 1
-    return render_template('subpage.html', this_county=_county_data, county_payload=county_data)
+
+        if each['county'] == _county: # hook to isolate the `_county`
+            _county_data = each
+    return render_template('subpage.html', this_county=_county_data, county_payload=sorted_data)
 
 
 

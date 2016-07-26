@@ -97,9 +97,17 @@ def home():
             print "Added %s to final list" % (county)
     
     # divide data into 3 for frontend segments
-    section_one = county_data[0]
-    section_two = county_data[1:11]
-    section_three = county_data[11:len(county_data)]
+    sorted_resp = sorted(county_data, key=lambda k: k['ratio'])
+    sorted_data = []
+    rank = 1
+    for each in sorted_resp:
+        each['rank'] = rank
+        sorted_data.append(each)
+        rank += 1
+
+    section_one = sorted_data[0]
+    section_two = sorted_data[1:11]
+    section_three = sorted_data[11:len(county_data)]
     
     return render_template('index.html',
             section_one=section_one,

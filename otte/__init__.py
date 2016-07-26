@@ -76,7 +76,8 @@ def get_county_data(county):
             travel=travel_budget,
             travel_remainder=total_budget - travel_budget,
             hospitality_str=resp.get('hospitality_budget', 0),
-            travel_str=resp['travel']['budget'] + ' million'
+            travel_str=resp['travel']['budget'] + ' million',
+            total=resp.get('total_budget', 0)
             )
     
     return county_payload

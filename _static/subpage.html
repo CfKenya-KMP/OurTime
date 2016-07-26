@@ -59,7 +59,9 @@
 							];
 						</script>
 						<canvas id="chartHospitality" width="280" height="280" class="dash-chart"></canvas>
-                        <h3 class="txt-center">Hospitality Budget: {{ this_county['hospitality_str'] }}</h3>
+                        <h3 class="txt-center">Hospitality Budget: <em>{{ this_county['hospitality_str'] }}</em></h3>
+                        <br>
+                        <h3 class="txt-center">Total Budget: <em>{{ this_county['total'] }}</em></h3>
 					</div>
 				</div>
 				<div class="chart third">
@@ -71,12 +73,14 @@
 							];
 						</script>
 						<canvas id="chartTravel" width="300" height="300" class="dash-chart"></canvas>						
-                        <h3 class="txt-center">Travel Budget: {{ this_county['travel_str'] }} </h3>
+                        <h3 class="txt-center">Travel Budget: <em>{{ this_county['travel_str'] }}</em></h3>
+                        <br>
+                        <h3 class="txt-center">Total Budget: <em>{{ this_county['total'] }}</em></h3>
 					</div>
 				</div>
 				<div class="chart third">
 					<div class="inner">
-                        At number {{ this_county['rank'] }} is {{ this_county['county_str'] }} County, which spends <em>{{ this_county['ratio'] }}%</em> of its budget allocation on travel and 'tea and biscuits'.
+                        At number {{ this_county['rank'] }} is {{ this_county['county_str'] }} County, which spends <em>{{ this_county['ratio'] }}%</em> of its budget allocation on travel and 'tea and biscuits'. #OTTE
 
 						<div class="social-sharing">
 							<a href="" id="twtbtn" class="twitter-hashtag-button" data-size="large" data-url="http://ourtime2eat.codeforkenya.org">Tweet #OurTime2Eat</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>

@@ -16,6 +16,17 @@
 
 <body class="home preload">
 
+	<!-- fb share button js -->
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.6";
+		fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
+
 	<header class="top">
 		<div class="wrap">
 			<a href="../" class="logo">&nbsp;</a>
@@ -24,8 +35,8 @@
 				<a class="governor primary clearfix" href="">
 					<div class="avi" style="background-image:url('assets/img/1.png')"></div>
 					<div class="details clearfix">
-						<div class="highlight-tag"> County</div>
-						<h2 class="underlined">Governor Kidero, Nairobi County</h2>
+						<div class="highlight-tag">Nairobi County</div>
+						<h2 class="underlined">Governor Kidero</h2>
 						<div class="clearfix">
 							<div class="percentage">30%</div>
 							<div class="rank right">1</div>
@@ -48,6 +59,7 @@
 							];
 						</script>
 						<canvas id="chartHospitality" width="280" height="280" class="dash-chart"></canvas>
+						<h3 class="txt-center">Hospitality</h3>
 					</div>
 				</div>
 				<div class="chart third">
@@ -59,11 +71,17 @@
 							];
 						</script>
 						<canvas id="chartTravel" width="300" height="300" class="dash-chart"></canvas>						
+						<h3 class="txt-center">Travel</h3>
 					</div>
 				</div>
 				<div class="chart third">
 					<div class="inner">
 						Mombasa governor Hassan Joho is ranked <em>15th</em> least efficient  #BiscuitIndex. Mombasa County spends <em>2%</em> of its budget allocation on travel and <em>1.4%</em> on 'tea and biscuits'.
+
+						<div class="social-sharing">
+							<a href="" id="twtbtn" class="twitter-hashtag-button" data-size="large" data-url="http://ourtime2eat.codeforkenya.org">Tweet #OurTime2Eat</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+							<div class="fb-share-button" data-href="http://ourtime2eat.codeforkenya.org/" data-layout="button" data-size="large" data-mobile-iframe="true" style="line-height:15px;"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fourtime2eat.codeforkenya.org%2F&amp;src=sdkpreparse">Share</a></div>
+						</div>
 					</div>
 				</div>
 			</div>

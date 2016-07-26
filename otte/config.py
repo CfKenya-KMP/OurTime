@@ -12,7 +12,7 @@ REDIS = dict(
         )
 
 COUNTIES = ['baringo', 'bomet', 'bungoma', 'busia',
-            'elgeiyo-marakwet', 'embu', 'garissa',
+            'elgeyo-marakwet', 'embu', 'garissa',
             'homa bay', 'isiolo', 'kajiado', 'kakamega',
             'kericho', 'kiambu', 'kilifi', 'kirinyaga',
             'kisii', 'kisumu', 'kitui', 'kwale', 'laikipia',
@@ -24,3 +24,5 @@ COUNTIES = ['baringo', 'bomet', 'bungoma', 'busia',
             'tharaka - nithi', 'trans nzoia', 'turkana',
             'uasin gishu', 'vihiga', 'wajir', 'west pokot'
             ]
+#COUNTIES = ['nairobi', 'kisumu', 'bungoma', 'laikipia', 'nyeri']
+NODATA = ['baringo', 'kirinyaga', 'lamu', 'bomet', 'uasin-gishu']

@@ -69,8 +69,15 @@ def get_county_data(county):
             governor=gov['governor'],
             governor_img=resp['governor_image'],
             rank=rank,
-            ratio=ratio
+            ratio=ratio,
+            hospitality=hospitality_budget,
+            hospitality_remainder=total_budget - hospitality_budget,
+            travel=travel_budget,
+            travel_remainder=total_budget - travel_budget,
+            hospitality_str=resp.get('hospitality_budget', 0),
+            travel_str=resp['travel']['budget'] + ' million'
             )
+    
     return county_payload
 
 

@@ -91,169 +91,28 @@
 	<div class="the-rest">
 
 		<div class="wrap">
-			<div class="inner-wrap clearfix">
+            <div class="inner-wrap clearfix">
+
+                {% for county in county_payload %}
 				<a href="" class="governor">
 					<div class="wrap">
 						<div class="inner-wrap clearfix">
 							<div class="details clearfix">					
 								<div class="names">
-									<div class="highlight-tag">Nyeri County</div>
-									<h2>Governor Kidero</h2>							
+                                    <div class="highlight-tag">{{ county['county'] }} County</div>
+                                    <h2>{{ county['governor'] }}</h2>
 								</div>
 								<div class="numbers">
-									<div class="percentage">20%</div>
-									<div class="rank">1</div>
+                                    <div class="percentage">{{ county['ratio'] }}%</div>
+                                    <div class="rank">{{ county['rank'] }}</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</a>
-				<a href="" class="governor">
-					<div class="wrap">
-						<div class="inner-wrap clearfix">
-							<div class="details clearfix">					
-								<div class="names">
-									<div class="highlight-tag">Nyeri County</div>
-									<h2>Governor Kidero</h2>							
-								</div>
-								<div class="numbers">
-									<div class="percentage">19%</div>
-									<div class="rank">2</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</a>
-				<a href="" class="governor">
-					<div class="wrap">
-						<div class="inner-wrap clearfix">
-							<div class="details clearfix">					
-								<div class="names">
-									<div class="highlight-tag">Nyeri County</div>
-									<h2>Governor Kidero</h2>							
-								</div>
-								<div class="numbers">
-									<div class="percentage">18%</div>
-									<div class="rank">3</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</a>
-				<a href="" class="governor">
-					<div class="wrap">
-						<div class="inner-wrap clearfix">
-							<div class="details clearfix">					
-								<div class="names">
-									<div class="highlight-tag">Nyeri County</div>
-									<h2>Governor Kidero</h2>							
-								</div>
-								<div class="numbers">
-									<div class="percentage">17%</div>
-									<div class="rank">4</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</a>
-				<a href="" class="governor">
-					<div class="wrap">
-						<div class="inner-wrap clearfix">
-							<div class="details clearfix">					
-								<div class="names">
-									<div class="highlight-tag">Nyeri County</div>
-									<h2>Governor Kidero</h2>							
-								</div>
-								<div class="numbers">
-									<div class="percentage">16%</div>
-									<div class="rank">5</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</a>
-				<a href="" class="governor">
-					<div class="wrap">
-						<div class="inner-wrap clearfix">
-							<div class="details clearfix">					
-								<div class="names">
-									<div class="highlight-tag">Nyeri County</div>
-									<h2>Governor Kidero</h2>							
-								</div>
-								<div class="numbers">
-									<div class="percentage">15%</div>
-									<div class="rank">6</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</a>
-				<a href="" class="governor">
-					<div class="wrap">
-						<div class="inner-wrap clearfix">
-							<div class="details clearfix">					
-								<div class="names">
-									<div class="highlight-tag">Nyeri County</div>
-									<h2>Governor Kidero</h2>							
-								</div>
-								<div class="numbers">
-									<div class="percentage">14%</div>
-									<div class="rank">7</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</a>
-				<a href="" class="governor">
-					<div class="wrap">
-						<div class="inner-wrap clearfix">
-							<div class="details clearfix">					
-								<div class="names">
-									<div class="highlight-tag">Nyeri County</div>
-									<h2>Governor Kidero</h2>							
-								</div>
-								<div class="numbers">
-									<div class="percentage">13%</div>
-									<div class="rank">8</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</a>
-				<a href="" class="governor">
-					<div class="wrap">
-						<div class="inner-wrap clearfix">
-							<div class="details clearfix">					
-								<div class="names">
-									<div class="highlight-tag">Nyeri County</div>
-									<h2>Governor Kidero</h2>							
-								</div>
-								<div class="numbers">
-									<div class="percentage">12%</div>
-									<div class="rank">9</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</a>
-				<a href="" class="governor">
-					<div class="wrap">
-						<div class="inner-wrap clearfix">
-							<div class="details clearfix">					
-								<div class="names">
-									<div class="highlight-tag">Nyeri County</div>
-									<h2>Governor Kidero</h2>							
-								</div>
-								<div class="numbers">
-									<div class="percentage">11%</div>
-									<div class="rank">10</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</a>
+                </a>
+                {% endfor %}
+
 			</div>
-			
 		</div>
 
 	</div><!-- the-rest -->

@@ -48,44 +48,46 @@ def todigit(number=""):
             return number_dig
 
 
+def get_county_data(county):
+    '''
+    '''
+    rds = get_db()
+    resp = eval(rds.get(slugify(county)))
+    travel_budget = todigit(resp['travel']['budget'] + ' million')
+    hospitality_budget = todigit(resp.get('hospitality_budget', 0))
+    total_budget = todigit(resp.get('total_budget', 0))
+    gov = resp['governance']
+
+    hospitality_ratio = (hospitality_budget / total_budget) * 100.0
+    travel_ratio = (float(travel_budget) / float(total_budget)) * 100.0
+    ratio = (hospitality_budget + travel_budget) / float(total_budget) * 100
+
+    # ranking
+    rank = 0
+    county_payload = dict(
+            county=county,
+            governor=gov['governor'],
+            governor_img=resp['governor_image'],
+            rank=rank,
+            ratio=ratio
+            )
+    return county_payload
+
+
 ### VIEWS
 
 @app.route('/')
 def home():
     '''
     index.html
-
-    data:  [ {cou:xx, ttl:ttl, hos:hos, trv:trv, rnk:rnk} ]
     '''
-
-
     # get the data
-    rds = get_db()
     county_data = []
     for county in app.config['COUNTIES']:
         if not county in app.config['NODATA']:
-            resp = eval(rds.get(slugify(county)))
-            travel_budget = todigit(resp['travel']['budget'] + ' million')
-            hospitality_budget = todigit(resp.get('hospitality_budget', 0))
-            total_budget = todigit(resp.get('total_budget', 0))
-            gov = resp['governance']
-
-            hospitality_ratio = (hospitality_budget / total_budget) * 100.0
-            travel_ratio = (float(travel_budget) / float(total_budget)) * 100.0
-            ratio = (hospitality_budget + travel_budget) / float(total_budget) * 100
-
-            # ranking
-            rank = 0
-            county_payload = dict(
-                    county=county,
-                    governor=gov['governor'],
-                    governor_img=resp['governor_image'],
-                    rank=rank,
-                    ratio=ratio
-                    )
-
+            county_payload = get_county_data(county)
             county_data.append(county_payload)
-            print "Added %s (%s percent) to final list" % (county, int(ratio))
+            print "Added %s to final list" % (county)
     
     # divide data into 3 for frontend segments
     section_one = county_data[0]
@@ -96,6 +98,19 @@ def home():
             section_one=section_one,
             section_two=section_two,
             section_three=section_three)
+
+
+@app.route('/subpage.html')
+def subpage():
+    '''
+    '''
+    county_data = []
+    for county in app.config['COUNTIES']:
+        if not county in app.config['NODATA']:
+            county_payload = get_county_data(county)
+            county_data.append(county_payload)
+    return render_template('subpage.html', county_payload=county_data)
+
 
 
 ### END OF VIEWS

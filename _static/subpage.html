@@ -38,8 +38,34 @@
 
 	<div class="chart-area">
 		<div class="wrap">
-			<div class="inner-wrap">
-				<br><br><br><br><br><br>
+			<div class="inner-wrap clearfix">
+				<div class="chart third">
+					<div class="inner">
+						<script type="text/javascript">
+							var dataHospitality = [
+								{value: 96000000,color:"#fede00",highlight: "#fede00",label: "Hospitality"},
+								{value: 540000000,color: "#80828b",highlight: "#878890",label: "Rest of Budget"},
+							];
+						</script>
+						<canvas id="chartHospitality" width="280" height="280" class="dash-chart"></canvas>
+					</div>
+				</div>
+				<div class="chart third">
+					<div class="inner">
+						<script type="text/javascript">
+							var dataTravel = [
+								{value: 755,color:"#fede00",highlight: "#fede00",label: "Travel"},
+								{value: 1404,color: "#80828b",highlight: "#878890",label: "Rest of Budget"},
+							];
+						</script>
+						<canvas id="chartTravel" width="300" height="300" class="dash-chart"></canvas>						
+					</div>
+				</div>
+				<div class="chart third">
+					<div class="inner">
+						Mombasa governor Hassan Joho is ranked <em>15th</em> least efficient  #BiscuitIndex. Mombasa County spends <em>2%</em> of its budget allocation on travel and <em>1.4%</em> on 'tea and biscuits'.
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

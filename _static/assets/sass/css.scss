@@ -97,6 +97,35 @@ body {
 
 .chart-area {
 	background: rgba($navyblue-primary, 0.9);
+	padding: 40px 0;
+	color: rgba(#fff,0.85);
+	font-weight: 400;
+	line-height: 1.35;
+	font-size: 16px;
+
+	.chart {
+		width: 33.33%;
+		float: left;
+
+		.inner {
+			margin-right: 40px;
+		}
+
+		&:last-child {
+			border-top: 1px solid rgba(#fff,0.1);
+
+			.inner {
+				margin-right: 0;
+				margin-left: 40px;
+				padding-top: 20px;
+			}
+		}
+
+		em {
+			color: $yellow-primary;
+			font-style: normal;
+		}
+	}
 }
 
 .governor {

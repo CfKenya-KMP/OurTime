@@ -82,8 +82,10 @@
 					<div class="inner">
                         At number {{ this_county['rank'] }} is {{ this_county['county_str'] }} County, which spends <em>{{ this_county['ratio'] }}%</em> of its budget allocation on travel and 'tea and biscuits'. #OTTE
 
-						<div class="social-sharing">
-							<a href="" id="twtbtn" class="twitter-hashtag-button" data-size="large" data-url="http://ourtime2eat.codeforkenya.org">Tweet #OurTime2Eat</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                        <div class="social-sharing">
+
+                            <a href="https://twitter.com/intent/tweet?button_hashtag=OTTE&text=At no. {{ this_county['rank'] }} is {{ this_county['county_str'] }} County, which spends {{ this_county['ratio'] }} percent of its budget on travel and 'tea and biscuits'." id="twtbtn" class="twitter-hashtag-button" data-size="large" data-url="http://ourtime2eat.codeforkenya.org">Tweet #OTTE</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
 							<div class="fb-share-button" data-href="http://ourtime2eat.codeforkenya.org/" data-layout="button" data-size="large" data-mobile-iframe="true" style="line-height:15px;"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fourtime2eat.codeforkenya.org%2F&amp;src=sdkpreparse">Share</a></div>
 						</div>
 					</div>

@@ -104,12 +104,19 @@ def home():
 def subpage():
     '''
     '''
+    # single county data
+    args = request.args.copy()
+    _county = args['county']
+    _county_data = get_county_data(_county)
+
+
+    # all county data
     county_data = []
     for county in app.config['COUNTIES']:
         if not county in app.config['NODATA']:
             county_payload = get_county_data(county)
             county_data.append(county_payload)
-    return render_template('subpage.html', county_payload=county_data)
+    return render_template('subpage.html', this_county=_county_data, county_payload=county_data)
 
 
 

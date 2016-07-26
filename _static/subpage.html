@@ -30,16 +30,16 @@
 	<header class="top">
 		<div class="wrap">
 			<a href="../" class="logo">&nbsp;</a>
-			<h1>County X expenditure data</h1>
+            <h1>{{ this_county['county'] }} County expenditure data</h1>
 			<div class="inner-wrap">
 				<a class="governor primary clearfix" href="">
 					<div class="avi" style="background-image:url('assets/img/1.png')"></div>
 					<div class="details clearfix">
-						<div class="highlight-tag">Nairobi County</div>
-						<h2 class="underlined">Governor Kidero</h2>
+                        <div class="highlight-tag">{{ this_county['county'] }} County</div>
+                        <h2 class="underlined">Governor {{ this_county['governor'] }}</h2>
 						<div class="clearfix">
-							<div class="percentage">30%</div>
-							<div class="rank right">1</div>
+                            <div class="percentage">{{ this_county['ratio'] }}%</div>
+                            <div class="rank right">{{ this_county['rank'] }}</div>
 						</div>
 					</div>
 				</a>
@@ -94,7 +94,7 @@
             <div class="inner-wrap clearfix">
 
                 {% for county in county_payload %}
-				<a href="" class="governor">
+                <a href="/subpage.html?county={{ county['county'] }}" class="governor">
 					<div class="wrap">
 						<div class="inner-wrap clearfix">
 							<div class="details clearfix">					

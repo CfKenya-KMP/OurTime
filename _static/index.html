@@ -38,7 +38,7 @@
 
 			<h1>Discover which Kenyan governors head counties with the largest percentage expenditure on food, travel &amp; leisure</h1>
 			<div class="inner-wrap">
-				<a class="governor primary clearfix" href="subpage.html">
+                <a class="governor primary clearfix" href="subpage.html?county={{ section_one['county'] }}">
                     <div class="avi" style="background-image:url('{{ section_one['governor_img'] }}')"></div>
 					<div class="details clearfix">
                         <div class="highlight-tag">Worst performer  -  {{ section_one['county'] }}</div>
@@ -56,7 +56,7 @@
     <div class="top-ten">
 
         {% for county in section_two %}
-		<a href="subpage.html" class="governor">
+        <a href="subpage.html?county={{ county['county'] }}" class="governor">
 			<div class="wrap">
 				<div class="inner-wrap clearfix">
                     <div class="gov-img avi" style="background-image:url('{{ county['governor_img'] }}')"></div>
@@ -83,7 +83,7 @@
             <div class="inner-wrap clearfix">
 
                 {% for each in section_three %}
-				<a href="subpage.html" class="governor">
+                <a href="subpage.html?county={{ each['county'] }}" class="governor">
 					<div class="wrap">
 						<div class="inner-wrap clearfix">
 							<div class="details clearfix">					

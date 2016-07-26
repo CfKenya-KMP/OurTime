@@ -1,8 +1,8 @@
 from flask import (Flask, g, request, session, redirect,
         url_for, render_template, jsonify)
 from flask_script import Manager
-import redis
-import os
+import redis, os
+from normality import slugify
 from OurTime2Eat.otte import config as config_file
 
 app = Flask(__name__,
@@ -63,28 +63,30 @@ def home():
     rds = get_db()
     county_data = []
     for county in app.config['COUNTIES']:
-        resp = eval(rds.get(slugify(county)))
-        travel_budget = resp.get('travel_budget', 0)
-        hospitality_budget = resp.get('hospitality_budget', 0)
-        total_budget = resp.get('total_budget', 0)
+        if not county in app.config['NODATA']:
+            resp = eval(rds.get(slugify(county)))
+            travel_budget = todigit(resp['travel']['budget'] + ' million')
+            hospitality_budget = todigit(resp.get('hospitality_budget', 0))
+            total_budget = todigit(resp.get('total_budget', 0))
+            gov = resp['governance']
 
-        hospitality_ratio = todigit(hospitality_budget)
+            hospitality_ratio = (hospitality_budget / total_budget) * 100.0
+            travel_ratio = (float(travel_budget) / float(total_budget)) * 100.0
+            ratio = (hospitality_budget + travel_budget) / float(total_budget) * 100
 
+            # ranking
+            rank = 0
+            county_payload = dict(
+                    county=county,
+                    governor=gov['governor'],
+                    governor_img=resp['governor_image'],
+                    rank=rank
+                    )
 
-        county_payload = dict(
-                county=county,
-
-                )
-
-
-        county_data.append(county_payload)
-        print "Added %s to final list" % county
+            county_data.append(county_payload)
+            print "Added %s (%s percent) to final list" % (county, int(ratio))
     
-    
-    county_rankings = dict(
-            
-            )
-    return render_template('index.html', county_rankings=county_rankings)
+    return render_template('index.html', county_rankings=county_data)
 
 
 ### END OF VIEWS

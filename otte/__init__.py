@@ -123,8 +123,8 @@ def home():
         reverse_sorted.append(sorted_data.pop())
     
     section_one = reverse_sorted[0]
-    section_two = reverse_sorted[1:11]
-    section_three = reverse_sorted[11:len(reverse_sorted)-1]
+    section_two = reverse_sorted[1:10]
+    section_three = reverse_sorted[10:len(reverse_sorted)-1]
 
     print sorted_data
     
